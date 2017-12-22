@@ -22,7 +22,6 @@ import {BusyBackdropComponent} from './busy-backdrop.component';
 })
 export class BusyDirective implements DoCheck, OnDestroy {
   @Input('ngBusy') options: any;
-  @Output('busyActive') isBusy: EventEmitter<boolean> = new EventEmitter<boolean>();
   private optionsRecord: any;
   private optionsNorm: IBusyConfig;
   template: string;
@@ -69,7 +68,6 @@ export class BusyDirective implements DoCheck, OnDestroy {
     const options = this.optionsNorm = this.normalizeOptions(this.options);
 
     if (!this.dectectOptionsChange()) {
-      this.isBusy.emit(this.tracker.isActive());
       return;
     }
     !equals(options.busy, this.tracker.promiseList)
@@ -89,7 +87,6 @@ export class BusyDirective implements DoCheck, OnDestroy {
 
       this.createBusy();
     }
-    this.isBusy.emit(this.tracker.isActive());
   }
 
   ngOnDestroy() {
@@ -109,9 +106,9 @@ export class BusyDirective implements DoCheck, OnDestroy {
   private createBusy() {
     const busyFactory = this.cfResolver.resolveComponentFactory(BusyComponent);
     this.busyRef = this.vcRef.createComponent(busyFactory, null, this.injector);
-    const {wrapperClass, template} = this.optionsNorm;
+    const {customClass, template} = this.optionsNorm;
     const instance = this.busyRef.instance;
-    instance.wrapperClass = wrapperClass;
+    instance.customClass = customClass;
     instance.template = template;
   }
 }

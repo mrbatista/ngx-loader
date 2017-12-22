@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {BusyModule} from '../../src/busy.module';
+import {FormsModule} from '@angular/forms';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 
 @NgModule({
@@ -12,6 +15,10 @@ import {BusyModule} from '../../src/busy.module';
   imports: [
     BrowserModule,
     BusyModule,
+    FlexLayoutModule,
+    FormsModule,
+    MatCheckboxModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

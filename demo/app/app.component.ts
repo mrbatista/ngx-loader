@@ -12,7 +12,7 @@ import 'rxjs/add/operator/delay';
 export class AppComponent{
   busyP: Promise<any>;
   busyS: Subscription;
-  active: boolean = true;
+  activeBackdrop: boolean = false;
 
   returnPromise() {
     this.busyP = new Promise((resolve) => {
@@ -24,9 +24,5 @@ export class AppComponent{
 
   returnSubscription() {
     this.busyS = Observable.of('string').delay(2000).subscribe();
-  }
-
-  isBusy(event) {
-    this.active = event;
   }
 }
