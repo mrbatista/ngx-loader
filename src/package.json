@@ -1,0 +1,31 @@
+{
+  "name": "@mrbatista/ngx-loader",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrbatista/ngx-loader"
+  },
+  "author": {
+    "name": "warco94",
+    "email": "mmelonimamo@gmail.com"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrbatista/ngx-loader/issues"
+  },
+  "main": "ngx-loader.umd.js",
+  "module": "ngx-loader.js",
+  "jsnext:main": "ngx-loader.js",
+  "typings": "ngx-loader.d.ts",
+  "peerDependencies": {
+    "@angular/animations": "^5.0.0",
+    "@angular/core": "^5.0.0",
+    "@angular/cdk": "^5.0.2",
+    "@angular/material": "^5.0.2",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}
