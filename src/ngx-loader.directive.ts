@@ -1,5 +1,5 @@
 import {
-  AfterContentInit, ChangeDetectorRef, ComponentFactoryResolver, ComponentRef,
+  OnInit, ComponentFactoryResolver, ComponentRef,
   Directive, DoCheck,
   Injector, Input, OnDestroy, ViewContainerRef
 } from '@angular/core';
@@ -12,7 +12,7 @@ import {NgxLoaderBackdropComponent} from './ngx-loader-backdrop.component';
   selector: '[ngxLoader]'
 })
 
-export class NgxLoaderDirective implements OnDestroy, AfterContentInit, DoCheck {
+export class NgxLoaderDirective implements OnDestroy, OnInit, DoCheck {
 
   options: any;
   private busyRef: ComponentRef<NgxLoaderComponent>;
@@ -22,8 +22,7 @@ export class NgxLoaderDirective implements OnDestroy, AfterContentInit, DoCheck 
 
   constructor(private cfResolver: ComponentFactoryResolver,
               private vcRef: ViewContainerRef,
-              private injector: Injector,
-              private cdref: ChangeDetectorRef) {
+              private injector: Injector) {
     this.optionsNorm = new NgxLoaderConfig();
   }
 
@@ -53,7 +52,6 @@ export class NgxLoaderDirective implements OnDestroy, AfterContentInit, DoCheck 
         (passedValue.busy as Subscription).add(resolve);
       });
       this.options = Object.assign({}, NgxLoaderConfig, passedValue);
-      console.log(this.options);
     }
     for (const property of Object.keys(this.optionsNorm)) {
       if (this.options && !this.options.hasOwnProperty(property)) {
@@ -66,7 +64,7 @@ export class NgxLoaderDirective implements OnDestroy, AfterContentInit, DoCheck 
   }
 
   ngDoCheck() {
-    if(this.busyRef && this.options !== this.optionsTemp) {
+    if (this.busyRef && this.options !== this.optionsTemp) {
       this.destroyComponents();
       this.optionsTemp = this.options;
       this.prepare();
@@ -74,10 +72,9 @@ export class NgxLoaderDirective implements OnDestroy, AfterContentInit, DoCheck 
     }
   }
 
-  ngAfterContentInit() {
+  ngOnInit() {
     this.prepare();
     this.checkAndInitPromiseHandler();
-    this.cdref.detectChanges();
   }
 
   ngOnDestroy() {
