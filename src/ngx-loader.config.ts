@@ -23,6 +23,6 @@ export const BUSY_CONFIG_DEFAULTS = {
   template: `
         <div class="ng-busy-default-wrapper"></div>
     `,
-  backdrop: true,
+  backdrop: false,
   customClass: 'ng-busy'
 };
