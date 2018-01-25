@@ -20,7 +20,7 @@ const timing = '.3s ease';
       left: 0;
       right: 0;
       bottom: 0;
-      z-index: 1001;
+      z-index: 1000;
       background: #fff;
       opacity: .7;
   }`],

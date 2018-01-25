@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {NgxLoaderModule} from '../../src/ngx-loader.module';
+import {NgxLoaderModule} from '../../dist';
 
 
 @NgModule({
@@ -14,11 +14,11 @@ import {NgxLoaderModule} from '../../src/ngx-loader.module';
   ],
   imports: [
     BrowserModule,
-    NgxLoaderModule,
     FlexLayoutModule,
     FormsModule,
     MatCheckboxModule,
     MatButtonModule,
+    NgxLoaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

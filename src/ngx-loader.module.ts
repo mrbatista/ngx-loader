@@ -5,7 +5,9 @@ import {NgxLoaderComponent} from './ngx-loader.component';
 import {NgxLoaderConfig} from './ngx-loader.config';
 import {MatProgressBarModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NgxLoaderDirective} from './ngx-loader.directive';
+
+export {NgxLoaderBackdropComponent} from './ngx-loader-backdrop.component'
+export {NgxLoaderComponent} from './ngx-loader.component'
 
 @NgModule({
   imports: [
@@ -14,11 +16,9 @@ import {NgxLoaderDirective} from './ngx-loader.directive';
   ],
   declarations: [
     NgxLoaderComponent,
-    NgxLoaderBackdropComponent,
-    NgxLoaderDirective,
+    NgxLoaderBackdropComponent
   ],
-  exports: [
-    NgxLoaderDirective],
+  exports: [NgxLoaderComponent],
   entryComponents: [
     NgxLoaderComponent,
     NgxLoaderBackdropComponent,
